@@ -1,11 +1,3 @@
-/*
-    1 - "Let's play a guessing game!, choose a number from 1 to 10"
-    2.a - If (choosenNumber != sortedNumber && choosenNumber < sortedNumber){print("Wrong, choose a lower number")}
-    2.b - If (choosenNumber != sortedNumber && choosenNumber > sortedNumber){print("Wrong, choose a higher number")}
-    3 - Else {print(Congratulations! The sorted number is (chosenNumber == sortedNumber))}
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +5,7 @@ int main()
 {
     // Creates the variable that represents the player's choice, then asks for the first number
     int chosenNumber;
-    printf("Choose a number\n");
+    printf("Choose a number between 1 to 10\n");
     scanf("%d", &chosenNumber);
 
     // the if condition is used because we need to lcok the choices between 1 and 10
@@ -60,28 +52,19 @@ int main()
                 printf("Congrats, correct number!\n");
                 return 0; //Return is needed to end the program if the chosen number is correct.
             }
-            if (attempts < 3) //Needed cod to allow the player to try again, it is nested in the while condition, meaning that it will run after a failed try
+            if (attempts < 3) //Needed code to allow the player to try again, it is nested in the while condition, meaning that it will run after a failed try
             {
                 scanf("%d", &chosenNumber);
             }
         }
-
+        
+        // Tells the player that he failed and shows what was the random number
         printf("Failed, the correct number was %d\n", randomizedNumber);
     }
     else
-    {
-        printf("error\n");
+    {   //prints an error if the player's input is invalid, out of range, or not a number.
+        printf("error, the chosen isn't not a number in the range of 1 to 10\n");
     }
 
     return 0;
-
-    // create the Array
-
-    // prints 20 random numbers from 1 to 10;
-
-    // for (int j = 0; j < 20; j++)
-    // {
-    //     int randomIndex = rand() % 10;
-    //     printf("%d ", arr[randomIndex]);
-    // }
 }
